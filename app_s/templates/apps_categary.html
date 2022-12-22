@@ -1,0 +1,83 @@
+{% extends 'basic.html' %}
+{% block header %} {% load static %} {% endblock %}
+{% block css_dir %} <link rel="stylesheet" type="text/css" href="/static/css/css1/download.css/"> {% endblock %}
+
+<!-- add image to thumbnail and make apps page in html and  -->
+{% block p_tittle %}{{details.0.app_categary}} -  Apps - oneup.com{% endblock %}
+{% block nav_downloads %} active {% endblock %}
+
+
+{% block center_body %}
+<div class="img_of_download ">
+    <div class="img_download ">
+        <a href="/apps/1">
+            <img class="" src="https://cdn.images.express.co.uk/img/dynamic/143/590x/PUBG-Mobile-Season-16-1360606.jpg?r=1605584384880" width="1085px" height="500pc" alt="">
+        </a>    
+    </div>
+</div>
+<!-- this is top rated section , thumbnail that redirect to apps, movies , softwares ,etc  -->
+<p class="section-tittle font-xxxl">
+    downloads
+</p>
+<p class="section-tittle2">
+    Download all lattest versions <br>
+    Download every thing from here
+</p>
+<div class="movies-sec " >
+    <div class="thumbnail-section">
+      
+        <text class="thumbnail-text-sec fa-2">
+          {{details.0.app_categary}}
+        </text>
+    
+        <div class="thumbnail-section-2 ">
+            <div class="apps-thumbnail">
+                {% for i in details %}
+                <div class="thumbnail margin-bottom-25 bg-dark border-dark"  >
+                    <a href="/apps/{{i.id}}/{{i.app_name}}">
+                    <button id="{i.id}}" class="thumbnail-href no_download ">
+                        <img src="/media/{{i.app_image}}" alt="{{i.app_name}}" class="thumbnail-img" width="110"
+                            height="110">
+                        <b class="thumbnail-txt">{{i.app_name}}</b></br>
+                        <small class="thumbnail-desc">{{i.app_description}}</small></br>
+                        <b class="thumbnail-desc text text-warning">{{i.app_categary}}</b>
+                    </button>
+                    </a>
+                  </div>
+                  
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+{% block js %}
+<script>
+
+if(localStorage.getItem('no_download') == null)
+{
+var no_download={};
+}
+else{
+no_download = JSON.parse (localStorage.getItem('no_download'));
+}
+//jQuery starts here//
+$('.no_download').click(function(){
+
+
+var idstr= this.id.toString();
+
+if(no_download[idstr]!= undefined) {
+    no_download[idstr] = no_download[idstr]+1;
+}
+else{
+    no_download[idstr] = 1;
+}
+
+localStorage.setItem('no_download', JSON.stringify(no_download));
+});
+</script>
+{% endblock %}

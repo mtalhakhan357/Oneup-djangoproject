@@ -1,0 +1,82 @@
+{% extends 'basic.html' %}
+{% block css_dir %} <link rel="stylesheet" type="text/css" href="/static/css/download.css//"> {% endblock %}
+
+<!-- add image to thumbnail and make apps page in html and  -->
+{% block p_tittle %}{{page.page_tittle}}{% endblock %}
+{% block p_desc %}{{page.page_description}}{% endblock %}
+{% block p_keyword %}"{{page.page_keywords}}"{% endblock %}
+{% block header %}
+  {% load static %}
+  <meta property="og:url" content="{{ request.path }}"/> 
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="{{page.og_tittle}}"/>
+  <meta property="og:description" content="{{page.og_description}}"/>
+  <meta property="og:image" content="/media/{{page.og_image}}"/>
+{% endblock %}
+{% block nav_apps %} active {% endblock %}
+
+
+{% block uperbody %}
+<div class="img_of_download ">
+    <div class="img_download ">
+        <a href="/apps/1">
+            <img class="" src="https://cdn.images.express.co.uk/img/dynamic/143/590x/PUBG-Mobile-Season-16-1360606.jpg?r=1605584384880" width="1085px" height="500pc" alt="">
+        </a>    
+    </div>
+</div>
+{% endblock %}
+{% block center_body %}
+<!-- this is top rated section , thumbnail that redirect to apps, movies , softwares ,etc  -->
+<div class="text-center text-light w-100 mt-5">
+  <b class="section-tittle font-xxxl center w-100">
+      APPS ON ONE UP
+  </b>
+  <b class="fa-2x">|   |</b> <br>
+  <div class="d-flex  my-1 text-center h-auto w-100">
+    <p class="row text-center center w-100 mb-5">
+    {% for products,range,nSlides in allProds %}
+      <a href="/apps/{{products.0.app_categary}}" class="btn btn-outline-light w-50 m-1">
+        <b >{{products.0.app_categary}}</b>
+      </a>
+    {% endfor %}
+    </p>
+    </div>
+  </div>{% for products, range, nSlides in allProds %}
+      <div class="movies-sec " >
+        <div class="thumbnail-section">
+          <a  class=" text-decoration-none " href="/apps/{{products.0.app_categary}}/">
+            <text class="thumbnail-text-sec fa-2">
+              {{products.0.app_categary}}
+            </text>
+          </a>
+          <div class="thumbnail-section-2">
+            
+            <div class="games-thumbnail">
+        {% for i in products %}
+        <div class="thumbnail margin-bottom-25 bg-dark border-dark"  >
+          <a href="/apps/{{i.id}}/{{i.app_name}}">
+          <button id="{i.id}}" class="thumbnail-href no_download ">
+              <img src="/media/{{i.app_image}}" alt="{{i.app_name}}" class="thumbnail-img" width="110"
+                  height="110">
+              <b class="thumbnail-txt">{{i.app_name}}</b></br>
+              <small class="thumbnail-desc">{{i.app_description}}</small></br>
+              <b class="thumbnail-desc text text-warning">{{i.app_categary}}</b>
+          </button>
+          </a>
+        </div>
+        {% endfor %}
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+        {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

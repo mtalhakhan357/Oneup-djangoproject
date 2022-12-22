@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  {% load humanize %}
+  <title>{% block p_tittle %}{% endblock %}</title>
+  <meta charset="UTF-8">
+  <meta name="description" content={% block p_desc %}{% endblock %}>
+  <meta name="keywords" content={% block p_keyword %}{% endblock %}>
+  <meta name="author" content="Oneup Tech">
+  <meta name="robots" content="all" />
+  <meta name="theme-color" content="#212529">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/media/main/icon/oneup/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/media/main/icon/oneup/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/media/main/icon/oneup/favicon-16x16.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/static/css/homestyle.css">
+  {% block header %}{% endblock %}
+  {% block css_dir %}{% endblock %}
+  
+</head>
+<style>
+  body{
+    font-family: 'Roboto', sans-serif;
+  }
+{% block css %}
+
+{% endblock %}
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #212529;
+  
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #848a8f; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #6c757d; 
+}
+.checked {
+  color: orange;
+}
+.fa-star{ float:right; position:relative; }
+.fa-star input {
+    position:absolute;
+    top:0px;
+    left:0px;
+    opacity:0;
+}
+</style>
+<body class="bg-dark text-light">
+  
+  <!-- its mav bar from boostrap-->
+  <nav id="navbar" class="navbar navbar-expand-xxl navbar-dark bg-dark hieght-nav " style="z-index:10;">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
+        aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand row " href="/">
+        <img src="/media/main/icon/oneup/logo.png" class="col-md-2 d-flex center" style="filter: contrast(150%)" width="40px" height="40px" alt="Logo" >
+        <b class="col-md-4" style="font-size: 30px;" > ONE UP</b>
+      </a>
+      
+      <div class="collapse navbar-collapse text-center center" id="navbarTogglerDemo03">
+        <ul class="navbar-nav me-auto mt-1 ">
+          <li class="nav-item">
+            <a class="nav-link  font-xxl {% block nav_home %} {% endblock %}" title="OneUp Home" aria-current="page" href="/">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link font-xxl {% block nav_games %} {% endblock %} " title="OneUp Games" href="/games/" tabindex="-1"
+              aria-disabled="true"> Download-Games
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link font-xxl {% block nav_apps %} {% endblock %} " title="OneUp Apps" href="/apps/" tabindex="-1"
+              aria-disabled="true"> Download-Apps
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link font-xxl {% block nav_contact_us %} {% endblock %}" title="OneUp ContactUs" href="/contact_us" tabindex="-1"
+              aria-disabled="true">Contact
+              us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link font-xxl {% block nav_about %} {% endblock %} " title="About OneUP Tech" href="/developer-area/"
+              aria-disabled="true">About</a>
+          </li>
+        </ul>
+
+      </div>
+          <li class="nav-item  list-unstyled">
+            <a href="#">
+                <button class="btn btn-light " type="button" data-bs-toggle="collapse" data-bs-target="#search"
+                  aria-expanded="false" aria-controls="collapseExample" name="toggle" title="Search">                 
+                    <i class="bi bi-search " style="font-size: 16px; "></i>
+                </button>             
+            </a>
+          </li>
+          
+          {% if user.is_authenticated %}
+          
+          <button class="btn btn-dark " title="Click" style="margin-left: 20px;margin-top: auto;margin-bottom: auto; padding:15px 7px 15px 7px; " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+           <i class="bi bi-person-lines-fill " style="font-size: 15px; "></i> Welcome {% if user.is_superuser %}Superuser{% elif user.is_staff %}Staff{% endif %} - {{request.user}}
+          </button>
+          
+          {% else %}
+          <li class="nav-item m-1 ml list-unstyled">
+            <button type="button" class="btn btn-outline-info" style="margin-left: 10px;font-size: 15px; "
+              data-bs-toggle="modal" data-bs-target="#loginModal" title="Log In">
+              Log In
+            </button>
+            <button type="button" class="btn btn-danger"
+              style="margin-left: 10px;margin-right: 0px;font-size: 15px;right: 0;" data-bs-toggle="modal"
+              data-bs-target="#signupModal" title="Sign Up">
+              Sign UP
+            </button>
+          </li>
+          {% endif %}
+          
+          
+        
+    </div>
+
+  </nav>
+    
+    <section class="container " style="margin-top: 90px;font-size:10;">
+    {% for message in messages %}
+  <div class="alert {% if message.tags != 'error' %} alert-{{message.tags}} {% else %} alert-danger {% endif %} alert-dismissible fade show " role="alert" style="font-size: 17px;">
+    <strong> 
+      {% if message.tags == 'error' %}<i class="bi bi-bug"> Error</i> {% elif message.tags == 'success' %} <i class="bi bi-check-square-fill" > Congretulations</i>  {% elif message.tags == 'warning' %} <i class="bi bi-exclamation-triangle-fill" > Warning</i>  
+      {% else %}
+      {% endif %}:</strong>{{message}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  
+  {% endfor %}
+    {% block uperbody %} {% endblock %}
+    <div style="display: flex;justify-content: center;" class=" w-100 my-5">
+    
+
+      <b class="text-light" style="display:block;">ADVERTISEMENT</b>
+
+    </div>
+  </section>
+  <section class="container" id="t1" style="margin-top: 20px;min-height:100vh ;">
+    <div class="collapse mb-5" id="search">
+      <b class="d-flex w-100 fa-2x text-center center">Search</b> 
+      <form method="get" action="/results" class="d-flex w-100">
+        <input class="form-control form-group form-control-lg me-4 bg-dark text-light" style="height: 20px" type="text" placeholder="Search"
+          aria-label="Search" name="search" >
+        <button class="btn btn-outline-secondary px-5" type="submit" tittle="search">Search</button>
+      </form>
+    </div>
+    <!-- Button trigger modal -->
+
+    <!-- canvasss -->
+    <div class="offcanvas offcanvas-end bg-dark text-light" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header">
+        <h3 id="offcanvasRightLabel mt-5">{{request.user}} {% if user.is_superuser %}(Superuser){% elif user.is_staff %}(Staff){% endif %}</h3>
+        
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <hr class="dropdown-divider">
+      <div class="offcanvas-body bg-dark">
+        <div>
+          <ul class=" list-unstyled " >
+            <li><a class="btn link-light" title="Go To Profile" style="font-size:20px;" href="/profile/"><i class="bi bi-file-person"></i> Profile<a>
+            <li><a class="btn link-light" style="font-size:20px;" title="Go To Setting" href="/settings/"><i class="bi bi-gear" ></i> Settings</a>
+            {% if user.is_staff %}
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="btn link-light" style="font-size:20px;" title="Admin Pannel" href="/developer-area/"><i class="bi bi-card-list"> Go to Admin</i> </a></li>
+              <li><a class="btn link-light" style="font-size:20px;" title="Admin Apps" href="/developer-area/app_s/app/">- <i class="bi bi-hdd-stack-fill"> Go to Apps</i></a></li>
+              <li><a class="btn link-light" style="font-size:20px;" title="Admin Games" href="/developer-area/games/game/">- <i class="bi bi-hdd-stack-fill"> Go to Games</i></a></li>
+              <li><a class="btn link-light" style="font-size:20px;" title="Admin Main Pannel" href="/developer-area/main/">- <i class="bi bi-bar-chart-line"> Main Pannel</i></a></li> 
+            {% elif user.is_superuser %}  
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="btn link-light" style="font-size:20px;" title="Admin Pannel" href="/developer-area/"><i class="bi bi-card-list"> Go to Admin</i> </a></li>
+            <li><a class="btn link-light" style="font-size:20px;" title="Admin Apps" href="/developer-area/app_s/app/">- <i class="bi bi-hdd-stack-fill"> Go to Apps</i></a></li>
+            <li><a class="btn link-light" style="font-size:20px;" title="Admin Games" href="/developer-area/games/game/">- <i class="bi bi-hdd-stack-fill"> Go to Games</i></a></li>
+            <li><a class="btn link-light" style="font-size:20px;" title="Admin Main Pannel" href="/developer-area/main/">- <i class="bi bi-bar-chart-line"> Main Pannel</i></a></li>
+            {% endif %}
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="btn link-light" style="font-size:20px;" title="log out" href="/logout/"><i class="bi bi-box-arrow-right" style="width: 32px;height: 32px;"></i> LOG OUT</a>
+            </li>  
+            
+          </ul>
+        </div>
+
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModal" aria-hidden="true">
+      <div class="modal-dialog " style="margin-top:100px;">
+        <div class="modal-content bg-dark text-light">
+          <div class="modal-header">
+            <h1 class="modal-title" id="loginModal">LOG IN</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body bg-dark" >
+            <div class="signup-form w-100 text-light bg-dark ">
+            <form action="/login/" method='post' class="bg-dark text-light"> {% csrf_token %}
+              <div class="form-group mb-3">
+                <label for="loginUsername" class="form-label">Username</label>
+                <input type="text" style="border: none; border-bottom:1px solid white;border-radius: 0%;" required="required" name="loginUsername" class="form-control  bg-dark text-light" id="loginUsername" placeholder="username" aria-describedby="loginUsernam">
+                
+              </div>
+              <div class="form-group mb-3">
+                <label for="loginPassword" class="form-label">Password</label>
+                <input type="password" style="border: none; border-bottom:1px solid white;border-radius: 0%;" name="loginpassword" class="form-control bg-dark text-light" id="loginPassword" required="required" placeholder="Password">
+              </div>
+              
+              <div class="g-recaptcha" data-sitekey="6LcEzpkaAAAAAMDlAt4_yvgTDOQ0cZ10RcFLf7r6"></div>
+              <input type="hidden" name="loginPath" value="{{request.path}}">
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Log In Now</button>
+              </div>
+            </form>
+           
+                  <label class="form-check-label ">Dont have an Account Then Make one - <button type="button" class="btn btn-danger"
+              style="margin-left: 10px;margin-right: 0px;font-size: 8px;right: 0;" data-bs-toggle="modal"
+              data-bs-target="#signupModal" title="Sign Up">
+              Sign up
+            </button></label>
+               
+            
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- sign up Modal -->
+    <div class="modal  fade " id="signupModal" tabindex="-1" aria-labelledby="signupModal" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content  bg-dark text-light">
+          <div class="modal-header ">
+            <h1 class="modal-title" id="signupModal">SIGN UP</h1>
+            <button type="button" class="btn-close btn-light" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body bg-dark ">
+
+            <div class="signup-form w-100 text-light bg-dark">
+              <form class="text-light bg-dark" action="/sign-up/" method="post" autocomplete="on">{% csrf_token %}
+                <h2 class="text-light bg-dark" >Register Now</h2>
+                <p class="hint-text " style="font-size: medium;">Create your account. It's free and only takes a minute.</p>
+                <div class="form-group  mb-4">
+                  <label for="signupUsername" style="font-size: large;">Username</label>
+                  <input type="text" style="border: none; border-bottom:1px solid white;border-radius: 0%;" class="form-control bg-dark text-light " name="signupUsername"
+                    id="signupUsername" placeholder="Enter Your Username" required="required">
+                  <div id="passwordHelpBlock" class="form-text text-light"  style="font-size: medium;">
+                    Your Username must be 8-20 characters long, contain letters and numbers , and must not contain spaces, special characters, or emoji.
+                  </div>
+                </div>
+                <div class="row">
+                <div class="form-group col-md-6 mb-4">
+                  <label for="signupfirst_name" style="font-size: large;">First Name(optional)</label>
+                  <input type="text" style="border: none; border-bottom:1px solid white;border-radius: 0%;" class="form-control bg-dark text-light " name="signupfirst_name"
+                    id="signupfirst_name" placeholder="Enter Your First Name" >
+                  <div id="passwordHelpBlock"  class="form-text text-light"  style="font-size: medium;">
+                    Your Firstname must contain letters only , and must not contain spaces, special characters, or emoji.
+                  </div>
+                </div>
+                <div class="form-group col-md-6  mb-4">
+                  <label for="signuplast_name" style="font-size: large;">Last Name(optional)</label>
+                  <input type="text" style="border: none; border-bottom:1px solid white;border-radius: 0%;" class="form-control bg-dark text-light " name="signuplast_name"
+                    id="signuplast_name" placeholder="Enter Your Last Name" >
+                    <div id="passwordHelpBlock" class="form-text text-light"  style="font-size: medium;">
+                      Your Lastname must contain letters only , and must not contain spaces, special characters, or emoji.
+                    </div>
+                </div>
+              </div>  
+                <div class="form-group  mb-4">
+                  <label for="signupemail" style="font-size: large;">E-mail</label>
+                  <input type="email" style="border: none; border-bottom:1px solid white;border-radius: 0%;" class="form-control bg-dark text-light " name="signupemail" id="signupemail"
+                    placeholder="Enter Your Email" required="required" style="font-size: medium;">
+                   Enter a valid email
+                </div>
+                <div class="form-group mb-4">
+                  <label for="singupPassword" class="form-label" style="font-size: large;">Password</label>
+                <input type="password" style="border: none; border-bottom:1px solid white;border-radius: 0%;" id="singupPassword" name="singupPassword" required="required" class="form-control bg-dark text-light" aria-describedby="passwordHelpBlock">
+                <div id="passwordHelpBlock" class="form-text text-light"  style="font-size: medium;">
+                  Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+                </div>
+                </div>
+                <div class="form-group mb-4">
+                  <label for="signupconfirm_password" style="font-size: large;">Confirm Password</label>
+                  <input type="password" style="border: none; border-bottom:1px solid white;border-radius: 0%;" class="form-control bg-dark text-light " name="signupconfirm_password"
+                    id="signupconfirm_password" placeholder="Please Your Password Confirm Password" required="required">
+                  <div id="passwordHelpBlock" class="form-text text-light" style="font-size: medium;" >
+                    Your Confirm password Must Match Password.
+                  </div>
+                </div>
+                <div class="form-group mb-4">
+                  <label class="form-check-label " style="font-size: 15px;"><input type="checkbox" required="required"> I accept the <a href="/terms-of-use">Terms of Use</a> &amp; <a href="/privacy-policy">Privacy Policy</a></label>
+                </div>
+                <input type="hidden" name="loginPath" value="{{request.path}}">
+                <div class="g-recaptcha" data-sitekey="6Leq0JkaAAAAANnBUBSwbRg1Nn2okYK93Vw_N9fR"></div>
+                <div class="form-group mb-4">
+                  <button type="submit" class="btn btn-success btn-lg btn-block p-2 m-3 w-50">Register Now</button>
+                </div>
+                
+              </form>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% block center_body %} {% endblock %}
+
+  </section>
+  <!-- body ends here ====================================== -->
+  <footer class="text-center text-lg-start text-light container" style="max-height: 271px;height: 270px;min-height: 259px; background-color:#303438;">
+    <!-- Grid container -->
+    <div class="container p-5 ">
+      <!--Grid row-->
+
+      <!--Grid column-->
+      <div class="col-lg-6 col-md-12  ">
+        <h1 class="text-uppercase ">ONE UP</h1>
+
+        <p class="text-uppercase " style="font-size:12px">
+  
+  
+        
+        </p>
+      </div>
+
+      <!--Grid column-->
+      <div class="row">
+        <!--Grid column-->
+        <div class=" text-center col-lg-4">
+          <h5 class="text-uppercase " style="font-size: 20px;">ABOUT ONEUP.COM</h5>
+
+          <ul class="list-unstyled ">
+            <li>
+              <a href="/contact_us/" class=" text-decoration-none my-1 " style="font-size: 13px;color:gray;">CONTACT
+                US</a>
+            </li>
+            <li>
+              <a href="/about/" class=" text-decoration-none my-1" style="font-size: 13px;color:gray;">ABOUT US</a>
+            </li>
+            <li>
+              <a href="/privacy-policy/" class=" text-decoration-none  my-1" style="font-size: 13px;color:gray;">Privacy Policy</a>
+            </li>
+            <li>
+              <a href="/terms-of-use/" class=" text-decoration-none my-1" style="font-size: 13px;color:gray;">Terms of
+                Use</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class=" text-center col-lg-4 ">
+          <h5 class="text-uppercase " style="font-size: 20px;">Developers</h5>
+
+          <ul class="list-unstyled ">
+            <li>
+              <a href="/developer-area/" class="mt-1 btn btn-lg {% if request.user.is_superuser %}
+          {% else %}
+          disabled
+          {% endif %}" 
+                style="font-size: 13px;color:gray;background-color: transparent;">developer-zone</a>
+            </li>
+
+          </ul>
+        </div>
+        <div class=" text-center col-lg-4 ">
+        <button type="button" class="btn btn-outline-light align-middle"
+          style="height: 30px ;" onclick="topFunction()" title="GO TO TOP"
+          data-toggle="tooltip"> <b style="padding: 0 10px 0 10px;"> Top </b></b>
+        </button>
+        </div>
+        <!--Grid column-->
+      </div>
+      <!--Grid row-->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center  p-2 mb-lg-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2020-2021 Copyright:
+      <a class="text-light" href="/"></a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+
+
+  <div class="">
+
+  </div>
+
+
+
+  <!--         
+        <div class="icon-ba">
+            <a href="#" class="facebook-light  "><i class="fa fa-facebook"></i></a>
+            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+            <a href="#" class="google"><i class="fa fa-google"></i></a>
+            <a href="#" class="youtube"><i class="fa fa-youtube"></i></a>
+        </div> -->
+
+
+
+
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script type="text/javascript" src="/static/js/homejs.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+  <script>
+  </script>
+  
+  {% block js %}{% endblock %}
+</body>
+
+</html>

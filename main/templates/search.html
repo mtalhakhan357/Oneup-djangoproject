@@ -1,0 +1,100 @@
+{% extends 'basic.html' %}
+{% block p_tittle %}{{page.page_tittle}}{% endblock %}
+{% block p_desc %}{{page.page_description}}{% endblock %}
+{% block p_keyword %}"{{page.page_keywords}}"{% endblock %}
+{% block header %}
+  {% load static %}
+  <meta property="og:url" content="{{ request.path }}"/> 
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="{{page.og_tittle}}"/>
+  <meta property="og:description" content="{{page.og_description}}"/>
+  <meta property="og:image" content="/media/{{page.og_image}}"/>
+{% endblock %}
+{% block css_dir %} <link rel="stylesheet" type="text/css" href="/static/css/homestyle.css/"> {% endblock %}
+
+<!-- add image to thumbnail and make games page in html and  -->
+{% block nav_home %} active {% endblock %}
+
+  <!-- end of simple home starting  -->
+
+
+  <!-- adds here big flex  -->
+
+
+
+
+
+
+  <!-- adds here big flex  -->
+    <!-- add image to thumbnail and make games page in html and  -->
+
+    {% block center_body %}
+     
+  
+    
+   
+      <div class="movies-sec " style="margin-top: 40px;" >
+        <div class="thumbnail-section">
+          
+            <text class="thumbnail-text-sec">
+              Result For {{query}} {{noresults}}
+            </text>
+         
+          <div class="thumbnail-section-2">
+            
+            <div class="games-thumbnail">
+              
+      {% for product2, range, nSlides2 in allProds2 %}
+        {% for i in product2 %}
+        <div class="thumbnail margin-bottom-25 bg-dark border-dark"  >
+          <a href="/apps/{{i.id}}/{{i.app_name}}">
+          <button id="{i.id}}" class="thumbnail-href no_download ">
+              <img src="/media/{{i.app_image}}" alt="{{i.app_name}}" class="thumbnail-img" width="110"
+                  height="110">
+              <b class="thumbnail-txt">{{i.app_name}}</b></br>
+              <small class="thumbnail-desc">{{i.app_description}}</small></br>
+              <b class="thumbnail-desc text text-warning">{{i.app_categary}}</b>
+          </button>
+          </a>
+        </div>
+        {% endfor %}
+        {% endfor %}
+      {% for product, range, nSlides in allProds %}
+        {% for i in product %}
+        <div class="thumbnail margin-bottom-25 bg-dark border-dark"  >
+          <a href="/games/{{i.id}}/{{i.game_name}}">
+          <button id="{i.id}}" class="thumbnail-href no_download ">
+              <img src="/media/{{i.game_image}}" alt="{{i.game_name}}" class="thumbnail-img" width="110"
+                  height="110">
+              <b class="thumbnail-txt">{{i.game_name}}</b></br>
+              <small class="thumbnail-desc">{{i.game_description}}</small></br>
+              <b class="thumbnail-desc text text-warning">{{i.game_categary}}</b>
+          </button>
+          </a>
+        </div>
+        {% endfor %}
+        {% endfor %}
+
+
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+        
+       
+        
+      </div>
+    </div>
+  </div>
+</div>
+  
+       
+     
+            </div>
+          </div>
+        </div>
+      </div>
+       {% endblock %}
+       

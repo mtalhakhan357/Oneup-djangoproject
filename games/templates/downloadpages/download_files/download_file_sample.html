@@ -1,0 +1,581 @@
+<!-- {% load static %}  -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OneUp- Here You Will Find All The Best Online Games And Movies</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css"
+        href="../static/css/download_file_sample.css">
+    <link rel="stylesheet" type="text/css"
+        href="{% static 'css/download_file_sample.css' %}">
+
+
+
+</head>
+
+<body class="bg-dark">
+
+
+
+
+
+
+
+    <!-- its mav bar from boostrap ------------------------------------------------------------ -->
+    <nav id="navbar" class="navbar navbar-expand-xxl navbar-dark bg-dark hieght-nav">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
+                aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand form-control-lg font-xxxl" href="/">One Up</a>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                <ul class="navbar-nav me-auto mb-5 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link  font-xxl" aria-current="page" href="/">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link font-xxl" href="/play_games" tabindex="-1" aria-disabled="true">Play
+                            Games</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link font-xxl active" href="" tabindex="-1" aria-disabled="true">Download</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link font-xxl" href="/contact_us" tabindex="-1" aria-disabled="true">Contact
+                            us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link font-xxl " href="/about" aria-disabled="true">About</a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- nav bar end ---------------------- -->
+    <section class="file_body container">
+        <div class="hr-custom"></div>
+        <div class="breadcurb bg-dark ">
+            <nav aria-label="breadcrumb ">
+                <ol class="breadcrumb bg-dark">
+                    <li class="breadcrumb-item  margin-top-1 "><a class="text-decoration-none text-light "
+                            href="/download">Download</a></li>
+                    <li class="breadcrumb-item margin-top-1"><a class="text-decoration-none text-light "
+                            href="">file_category</a></li>
+                    <li class="breadcrumb-item active margin-top-1 text-primary" aria-current="page">file_name</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="details">
+            <div class="icon">
+                <a href="">
+                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg" class="file_icon"
+                        alt="file-name icon" width="150" height="150">
+                </a>
+            </div>
+            <div class="info">
+                <h1 class="file_name text-light">File-name</h1>
+                <h3 class="file_version text-success">1.2</h3>
+                <h5 class="file_version text-warning">johny</h5>
+            </div>
+
+        </div>
+        <div class="status" >
+            
+            <div class="rating-star" >
+                <a href="#rating">
+                    <svg viewBox="0 0 11 12" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                        <rect fill="none" height="20" width="20" y="-1" x="-1"></rect>
+                        <path stroke="null" 
+                            d="m6.28296,0.48192l1.52221,3.6028l3.89705,0.33479c0.27029,0.02334 0.38024,0.36059 0.17507,0.53812l-2.95596,2.56097l0.8858,3.80982c0.06143,0.26476 -0.22544,0.473 -0.45765,0.33233l-3.3491,-2.01978l-3.3491,2.01978c-0.23282,0.14006 -0.51907,-0.06819 -0.45765,-0.33233l0.8858,-3.80982l-2.95657,-2.56158c-0.20517,-0.17753 -0.09583,-0.51477 0.17507,-0.53812l3.89705,-0.33479l1.52221,-3.60219c0.10566,-0.25063 0.4601,-0.25063 0.56576,0z" fill="#8a8a8a">
+                        </path>
+                    </svg>
+                    <span class=" text-light "> 5</span>
+                </a>
+            </div>
+            <div class="space text-light">
+                |
+            </div>
+            <div class="downloads" >
+                <svg width="15" height="15" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" >
+                    <rect fill="none" height="10" width="10" y="-1" x="-1"></rect>
+                    <path stroke="null"
+                        d="m10.16769,7.63787l0,2.725l-8.33538,0l0,-2.725l-1.60205,0l0,3.52603c0,0.4421 0.35813,0.80063 0.80222,0.80063l9.93504,0c0.44369,0 0.80222,-0.35813 0.80222,-0.80063l0,-3.52603l-1.60205,0z" fill="#8a8a8a">
+                    </path>
+                    <path stroke="null"
+                        d="m5.85336,7.36767l-2.29365,-2.77156c0,0 -0.34898,-0.32948 0.02945,-0.32948s1.29247,0 1.29247,0s0,-0.22165 0,-0.56346c0,-0.97452 0,-2.74808 0,-3.47112c0,0 -0.05133,-0.19658 0.24473,-0.19658c0.29845,0 1.60564,0 1.81932,0c0.21329,0 0.20851,0.16554 0.20851,0.16554c0,0.70115 0,2.53599 0,3.47868c0,0.30561 0,0.50378 0,0.50378s0.73298,0 1.19299,0c0.45921,0 0.11341,0.345 0.11341,0.345s-1.95143,2.5905 -2.22362,2.86229c-0.19578,0.19697 -0.3836,-0.02308 -0.3836,-0.02308z" fill="#8a8a8a">
+                    </path>
+                </svg>
+                Downloads - 55
+            </div>
+            <div class="space text-light">
+                |
+            </div>
+            <div class="verfied">
+                <span id="virus-total-report" class="blue" file-id="3301085">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 10.099 12">
+                        <path
+                            d="M43.994,3.089c-.014-.316-.014-.617-.014-.918a.423.423,0,0,0-.43-.43A5.766,5.766,0,0,1,39.259.118a.443.443,0,0,0-.6,0A5.766,5.766,0,0,1,34.366,1.74a.423.423,0,0,0-.43.43c0,.3,0,.6-.014.918-.057,3.013-.143,7.146,4.893,8.883l.143.029.144-.029C44.123,10.235,44.052,6.117,43.994,3.089ZM38.613,7.265a.463.463,0,0,1-.3.115H38.3a.4.4,0,0,1-.3-.143L36.661,5.758l.646-.574,1.048,1.162,2.325-2.21.588.631Z"
+                            transform="translate(-33.908 0)" fill="#8a8a8a"></path>
+                    </svg>
+                </span>
+
+                Verified
+            </div>
+            <div class="space text-light">
+                |
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- simple dismisable able alert --------------------------------------------->
+
+    <!-- end ------------------------>
+
+
+
+    <!-- addds here  -->
+
+
+
+    <!-- simple home starting for some recomendetion  -->
+    <!-- add links on hrfs to redirect -->
+
+    <!-- end of simple home starting  -->
+
+
+    <!-- adds here big flex  -->
+
+
+
+
+
+
+    <!-- adds here big flex  -->
+
+
+
+
+    <!-- real body starts now  -->
+    <header></header>
+    <div class="hr-custom"></div>
+
+    <section class="bodyy1 bg-dark ">
+
+
+        <!-- make it sticky to left side  -->
+        <div class="leftside ">
+            <!-- addds herer  -->
+            <div class="icon-bar">
+                <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                <a href="#" class="google"><i class="fa fa-google"></i></a>
+                <a href="#" class="youtube"><i class="fa fa-youtube"></i></a>
+            </div>
+
+        </div>
+        <!-- add image to thumbnail and make games page in html and  -->
+
+        <div class="centerbody left-container ">
+            
+
+
+            <!-- this is top rated section , thumbnail that redirect to games, movies , softwares ,etc  -->
+            <p class="section-tittle font-xxxl">
+                Downloads
+            </p>
+            <p class="section-tittle2">
+                Download all lattest versions <br>
+                Download every thing from here
+            </p>
+
+            <div class="movies-sec">
+                <div class="thumbnail-section">
+                    <p class="thumbnail-text-sec ">
+
+                        Movies-1
+                    </p>
+                    <div class="thumbnail-section-2 ">
+
+                        <div class="games-thumbnail">
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="/movies/avengers_end_game" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Avengers Endgame</P>
+                                </a>
+                            </div>
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Infinity War </P>
+                                </a>
+                            </div>
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Avengers</P>
+                                </a>
+                            </div>
+
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Iron Man </P>
+                                </a>
+                            </div>
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Infinity War </P>
+                                </a>
+                            </div>
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Avengers</P>
+                                </a>
+                            </div>
+
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Iron Man </P>
+                                </a>
+                            </div>
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Infinity War </P>
+                                </a>
+                            </div>
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Infinity War </P>
+                                </a>
+                            </div>
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Infinity War </P>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="width4">
+
+                        </div>
+
+                        <div class="games-thumbnail">
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="movies/avengers_end_game" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Avengers Endgame</P>
+                                </a>
+                            </div>
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Infinity War </P>
+                                </a>
+                            </div>
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Avengers</P>
+                                </a>
+                            </div>
+
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Iron Man </P>
+                                </a>
+                            </div>
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Infinity War </P>
+                                </a>
+                            </div>
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Avengers</P>
+                                </a>
+                            </div>
+
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Iron Man </P>
+                                </a>
+                            </div>
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Infinity War </P>
+                                </a>
+                            </div>
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Infinity War </P>
+                                </a>
+                            </div>
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Infinity War </P>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="width4">
+
+                        </div>
+                        <div class="games-thumbnail">
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="movies/avengers_end_game" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Avengers Endgame</P>
+                                </a>
+                            </div>
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Infinity War </P>
+                                </a>
+                            </div>
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Avengers</P>
+                                </a>
+                            </div>
+
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Iron Man </P>
+                                </a>
+                            </div>
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Infinity War </P>
+                                </a>
+                            </div>
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Avengers</P>
+                                </a>
+                            </div>
+
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Iron Man </P>
+                                </a>
+                            </div>
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Infinity War </P>
+                                </a>
+                            </div>
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Infinity War </P>
+                                </a>
+                            </div>
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Infinity War </P>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="width4">
+
+                        </div>
+                        <div class="games-thumbnail">
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="movies/avengers_end_game" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Avengers Endgame</P>
+                                </a>
+                            </div>
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Infinity War </P>
+                                </a>
+                            </div>
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Avengers</P>
+                                </a>
+                            </div>
+
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Iron Man </P>
+                                </a>
+                            </div>
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Infinity War </P>
+                                </a>
+                            </div>
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Avengers</P>
+                                </a>
+                            </div>
+
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Iron Man </P>
+                                </a>
+                            </div>
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Infinity War </P>
+                                </a>
+                            </div>
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Infinity War </P>
+                                </a>
+                            </div>
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Infinity War </P>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+        </div>
+        <!-- make it sticky to left side  -->
+
+        <div class="rightside col-sm-4 right-conatainer">
+            <div id="sticky-anchor"></div>
+            <div class="sidebar">
+            </div><!-- sidebar ends -->
+        </div>
+
+    </section>
+
+
+
+
+
+
+
+    <!-- body ends here ----------====================================== -->
+    <section class="footer">
+        <footer class="footer footer1 bg-dark2 ">
+            <section class="footercopyright   ">
+                <button type="button" class="btn btn-secondary nav-btn slide-right scrollTop " onclick="topFunction() "
+                    title="go to top" data-toggle="tooltip">Go to Top</button>
+                <p class="" style="font-size: 20px;  color: aliceblue;">
+                    ©2021-2022 Newtron Gaming
+                </p>
+                <P class=" " style="color: aliceblue;font-size: larger;">
+                    <a href="mailto:officialnewtrongaming@gmail.com" class="text-primary contact_me">Contact me </a>
+                    |
+                    <a href="#" class="contact_me text-primary">Privcy</a>
+                    |
+                    <a href="#" class=" contact_me text-primary">Terms</a>
+
+                </P>
+            </Section>
+        </footer>
+    </section>
+    <script type="text/javascript" src="/static/js/homejs.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

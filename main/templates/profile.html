@@ -1,0 +1,46 @@
+{% extends "basic.html" %}
+{% block p_tittle %}{{user.username}} | Profile{% endblock %}
+{% block p_desc %}One Up User Page | Edit Your User Profile And Add Profile Image{% endblock %}
+{% block header %}
+  {% load static %}
+  <meta property="og:url" content="{{ request.path }}"/> 
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="User | Profile"/>
+  <meta property="og:description" content="One Up User Page | Edit Your User Profile And Add Profile Image."/>
+  <meta property="og:image" content="/media/main/icon/oneup/logo.png"/>
+{% endblock %}
+{% block nav_home %} active {% endblock %}
+
+{% block center_body %} 
+{% if user.is_authenticated %}
+<div class="">
+        <p class="text-center">
+            <b class="fa-3x">Welcome {{user.username}} {% if user.is_superuser %}(SuperUser){% elif user.is_staff %}(Staff){% endif %} to your Profile</b> <br>
+        </p>
+        <p class="text-center">
+            <b class="fa-2x">This is your Profile</b> <br>
+        </p> <br>
+        <div class="d-flex">
+            <img class="img center" src="/media/{{user.profile.image}}" alt="Your Profile Image" title="Your Profile Image" width="200" height="200">
+        </div>    
+</div>
+{% else %}
+    <div class="fa-3x text-center">
+        <p class="text-center">
+            Please 
+        <button type="button" class="btn btn-outline-info"  style="font-size: 20px; " data-bs-toggle="modal" data-bs-target="#loginModal" title="Log In">
+        Log In
+        </button> to View Your Profile
+        </p> 
+        or
+        <p class="text-center">
+
+        <button type="button" class="btn btn-danger" style="font-size: 20px;" data-bs-toggle="modal"
+            data-bs-target="#signupModal" title="Sign Up">
+            Sign UP
+        </button> To Log in
+        </p>
+    </div>
+{% endif %}
+    
+{% endblock %}

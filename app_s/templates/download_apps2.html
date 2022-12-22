@@ -1,0 +1,250 @@
+{% extends 'basic.html' %}
+{% block p_tittle %} {{details.app_name}} - apps - oneup.com {% endblock %}
+{% block header %}{% load static %}{% endblock %}
+{% block css_dir %} <link rel="stylesheet" type="text/css" href="/static/css/download_games_sample.css"> {% endblock %}
+
+<!-- add image to thumbnail and make apps page in html and  -->
+
+{% block nav_apps %} active {% endblock %}
+{% block css %}
+.rating {
+    float:left;
+    width:300px;
+}
+.rating span { float:right; position:relative; }
+.rating span input {
+    position:absolute;
+    top:0px;
+    left:0px;
+    opacity:0;
+}
+.rating span label {
+    display:inline-block;
+    width:30px;
+    height:30px;
+    text-align:center;
+    color:#FFF;
+    background:rgba(204, 204, 204, 0);
+    font-size:30px;
+    margin-right:0;
+    line-height:30px;
+}
+.rating span:hover ~ span label,
+.rating span:hover label,
+.rating span.checked label,
+.rating span.checked ~ span label {
+    background:rgba(255, 255, 255, 0);
+    color:#F90;
+}
+<!-- add image to thumbnail and make games page in html and  -->
+{% endblock %}
+{% block center_body %}
+    <section class="bodyy1 bg-dark container">
+        <div class="centerbody ">
+            <div class="breadcurb bg-dark">
+                <nav class="bg-dark " style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                    <ol class="breadcrumb font1">
+                        <li class="breadcrumb-item margin-top-1 bg-dark"><a class="text-decoration-none " href="/">HOME</a></li>
+                        <li class="breadcrumb-item margin-top-1 bg-dark"><a class="text-decoration-none " href="/apps">Apps</a></li>
+                        <li class="breadcrumb-item margin-top-1 bg-dark"><a href="/apps/{{details.app_categary}} " class="bg-dark text-decoration-none " >{{details.app_categary}}</a></li>
+                        <li class="breadcrumb-item active margin-top-1 bg-dark" aria-current="page">{{details.app_name}}</li>
+                        <li class="breadcrumb-item active margin-top-1 bg-dark" aria-current="page">Download</li>
+                    </ol>
+                </nav>
+                
+            </div>
+            <div class="details">
+                <div class="icon">
+                    <a href="">
+                        <img src="/media/{{details.app_image}}" class="{{details.app_name}}"
+                            alt="file-name icon" width="150" height="150">
+                    </a>
+                </div>
+                <div class="info">
+                    <h1 class="file_name text-light">{{details.app_name}}</h1>
+                    <h3 class="file_version text-success">{{details.app_version}}</h3>
+                    <h5 class="file_version text-warning"><a class="text-warning text-decoration-none" href="/apps/{{details.app_categary}}" >{{details.app_categary}}</a></h5>
+                </div>
+    
+            </div>
+            <div class="status padding-top-50" >
+                
+                <div class="rating-star" >
+                    <a >
+                        <svg viewBox="0 0 11 12" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                            <rect fill="none" height="20" width="20" y="-1" x="-1"></rect>
+                            <path stroke="null" 
+                                d="m6.28296,0.48192l1.52221,3.6028l3.89705,0.33479c0.27029,0.02334 0.38024,0.36059 0.17507,0.53812l-2.95596,2.56097l0.8858,3.80982c0.06143,0.26476 -0.22544,0.473 -0.45765,0.33233l-3.3491,-2.01978l-3.3491,2.01978c-0.23282,0.14006 -0.51907,-0.06819 -0.45765,-0.33233l0.8858,-3.80982l-2.95657,-2.56158c-0.20517,-0.17753 -0.09583,-0.51477 0.17507,-0.53812l3.89705,-0.33479l1.52221,-3.60219c0.10566,-0.25063 0.4601,-0.25063 0.56576,0z" fill="#8a8a8a">
+                            </path>
+                        </svg>
+                        <span class=" text-light "> {{details.rating}}</span>
+                    </a>
+                </div>
+                <div class="space text-light">
+                    |
+                </div>
+                <div class="downloads" >
+                    <svg width="15" height="15" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" >
+                        <rect fill="none" height="10" width="10" y="-1" x="-1"></rect>
+                        <path stroke="null"
+                            d="m10.16769,7.63787l0,2.725l-8.33538,0l0,-2.725l-1.60205,0l0,3.52603c0,0.4421 0.35813,0.80063 0.80222,0.80063l9.93504,0c0.44369,0 0.80222,-0.35813 0.80222,-0.80063l0,-3.52603l-1.60205,0z" fill="#8a8a8a">
+                        </path>
+                        <path stroke="null"
+                            d="m5.85336,7.36767l-2.29365,-2.77156c0,0 -0.34898,-0.32948 0.02945,-0.32948s1.29247,0 1.29247,0s0,-0.22165 0,-0.56346c0,-0.97452 0,-2.74808 0,-3.47112c0,0 -0.05133,-0.19658 0.24473,-0.19658c0.29845,0 1.60564,0 1.81932,0c0.21329,0 0.20851,0.16554 0.20851,0.16554c0,0.70115 0,2.53599 0,3.47868c0,0.30561 0,0.50378 0,0.50378s0.73298,0 1.19299,0c0.45921,0 0.11341,0.345 0.11341,0.345s-1.95143,2.5905 -2.22362,2.86229c-0.19578,0.19697 -0.3836,-0.02308 -0.3836,-0.02308z" fill="#8a8a8a">
+                        </path>
+                    </svg>
+                    Downloads - {{details.views}}
+                </div>
+                <div class="space text-light">
+                    |
+                </div>
+                <div class="verfied">
+                    <span id="virus-total-report" class="blue" file-id="3301085">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 10.099 12">
+                            <path
+                                d="M43.994,3.089c-.014-.316-.014-.617-.014-.918a.423.423,0,0,0-.43-.43A5.766,5.766,0,0,1,39.259.118a.443.443,0,0,0-.6,0A5.766,5.766,0,0,1,34.366,1.74a.423.423,0,0,0-.43.43c0,.3,0,.6-.014.918-.057,3.013-.143,7.146,4.893,8.883l.143.029.144-.029C44.123,10.235,44.052,6.117,43.994,3.089ZM38.613,7.265a.463.463,0,0,1-.3.115H38.3a.4.4,0,0,1-.3-.143L36.661,5.758l.646-.574,1.048,1.162,2.325-2.21.588.631Z"
+                                transform="translate(-33.908 0)" fill="#8a8a8a"></path>
+                        </svg>
+                    </span>
+    
+                    Verified
+                </div>
+                <div class="space text-light">
+                    |
+                </div>
+            </div>
+            <div class="text-danger font-xxxl  padding-top-50" >
+                {{details.app_description}}
+            </div> <br>
+
+            <div class=" text-light aling-text-center padding-top-50 padding-bottom-50 " > 
+                Advertisment
+
+            </div>
+            <div class="download-button-div">
+                <a href="{{details.app_download_href}}" >
+                    <button type="button" class="download-button btn btn-outline-success ">
+                        <b>Download </b>
+                        <small class="small-txt">size-{{details.app_size}}</small>
+                    </button>
+                <a>
+            </div>
+            <div class="tech_info padding-top-50 padding-bottom-50">
+            
+                <p class=" text-light font-xxl4 TIP" style=" padding:20px; ">TECHNICAL INFORMATION</p>
+            
+                <div class="table-responsive-sm w-auto">
+            
+                    <table class=" w-auto table table-dark font-xxl3 table-borderless ">
+                        <thead>
+                        <tr>
+                          <td>Pack Name </td>
+                          <td>=&nbsp&nbsp&nbsp{{details.app_pack_name}}</td>
+                        </tr>
+                        <tr>
+                          <td>License </td>
+                          <td>=&nbsp&nbsp&nbsp<a>{{details.app_license}}</a></td>
+                        </tr>
+                        <tr>
+                            <td>Category</td>
+                            <td>=&nbsp&nbsp&nbsp<a class="text-light" href="/apps/{{details.app_categary}}" >{{details.app_categary}}</a></td>
+                          </tr>
+                        <tr>
+                          <td>Version </td>
+                          <td>=&nbsp&nbsp&nbsp{{details.app_version}}</td>
+                        </tr>
+                            
+                        <tr>
+                          <td>OS(Opreting systerm) </td>
+                          <td>=&nbsp&nbsp&nbsp<b>{{details.app_sub_categary}}</b></td>
+                        </tr>
+                        <tr>
+                          <td>Author &nbsp&nbsp&nbsp</td>
+                          <td>=&nbsp&nbsp&nbsp<a target="_blank" href="{{details.app_author_href}}" class="link-warning ">{{details.app_author}}</a></td>
+                        </tr>
+                        <tr>
+                          <td>Release Date ({{details.app_version}}) </td>
+                          <td>=&nbsp&nbsp&nbsp<b>{{details.app_release_date}}</b></td>
+                        </tr>
+                        <tr>
+                          <td>Publish Date (on ONE UP) </td>
+                          <td>=&nbsp&nbsp&nbsp<b>{{details.app_publish_date}}</b></td>
+                        </tr>
+                        <tr>
+                          <td>Downloads </td>
+                          <td>=&nbsp&nbsp&nbsp <span>{{details.views}}</span></td>
+                        </tr>
+                        </tbody> 
+                    </table>
+            
+                </div>
+            </div>
+            <div class=" text-light aling-text-center padding-top-50 padding-bottom-50 " > 
+                Advertisment
+
+            </div>
+            <div class="font-xxl2 text-light "> 
+                {{ details.app_maindescription }}
+            </div><br>
+            <a href="/apps/{{details.id}}/{{details.app_name}}#comment" class="text-light text-decoration-none text-center" ><h1 style="padding: 50px 0 50px 0;">
+                --------------------------Comments--------------------------     
+            </h1> </a>
+
+            <!-- this is top rated section , thumbnail that redirect to apps, movies , softwares ,etc  -->
+            <p class="section-tittle font-xxxl">
+                Similar To {{details.game_name}}
+            </p>
+            <p class="section-tittle2">
+                Download all lattest versions <br>
+                Download every thing from here
+            </p>
+
+            <div class="movies-sec">
+                <div class="thumbnail-section">
+                    <p class="thumbnail-text-sec ">
+
+                        Movies-1
+                    </p>
+                    <div class="thumbnail-section-2 ">
+
+                        <div class="apps-thumbnail">
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="/movies/avengers_end_app" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="app img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Avengers Endapp</P>
+                                </a>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </section>
+{% endblock %}
+{% block js %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+ <!-- java script  -->
+<script>
+    $(document).ready(function(){
+    // Check Radio-box
+    $(".rating input:radio").attr("checked", false);
+
+    $('.rating input').click(function () {
+        $(".rating span").removeClass('checked');
+        $(this).parent().addClass('checked');
+    });
+
+    $('input:radio').change(
+      function(){
+        var userRating = this.value;
+    }); 
+});
+</script>
+{% endblock %}

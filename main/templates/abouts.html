@@ -1,0 +1,21 @@
+{% extends 'basic.html' %}
+{% block p_tittle %}{{page.page_tittle}}{% endblock %}
+{% block p_desc %}{{page.page_description}}{% endblock %}
+{% block p_keyword %}"{{page.page_keywords}}"{% endblock %}
+{% block header %}
+  {% load static %}
+  <meta property="og:url" content="{{ request.path }}"/> 
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="{{page.og_tittle}}"/>
+  <meta property="og:description" content="{{page.og_description}}"/>
+  <meta property="og:image" content="/media/{{page.og_image}}"/>
+{% endblock %}
+{% block css_dir %} <link rel="stylesheet" type="text/css" href="/static/css/homestyle.css"> {% endblock %}
+
+<!-- add image to thumbnail and make games page in html and  -->
+{% block nav_about %} active {% endblock %}
+
+
+{% block center_body %}
+
+{% endblock %}

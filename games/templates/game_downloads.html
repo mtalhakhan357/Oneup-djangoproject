@@ -1,0 +1,355 @@
+{% extends 'basic.html' %}
+{% block p_tittle %} {{details.game_name}} - Games | oneup.com - {{details.game_author}}{% endblock %}
+{% block p_desc %} {{details.page_description}} {% endblock %}
+{% block p_keyword %} {{details.game_tags}} {% endblock %}
+{% block header %}  
+    {% load static %}
+    {% load humanize %}
+    <meta property="og:title" content="Impostor 3D - Hide and Seek (Android)"/>
+    <meta property="og:site_name" content="{{site.domain}}"/>
+    <meta property="og:updated_time" content="2021-03-29" />
+    <meta property="og:type" content="oneup:program" />
+    <meta property="og:image" content="/media/{{details.game_image}}"/>
+    <meta property="og:url" content="{{ request.path }}"/>
+    <meta property="og:description" content="{{details.page_description}}" />
+    <!-- <meta property="fb:admins" content="1226208773"/>
+    <meta property="fb:app_id" content="277304817398"/>
+    <meta property="id_prog" content="871381"/> -->
+    <meta property="twitter:card" content="product">
+    <meta property="twitter:site" content="ONE-UP">
+    <meta property="twitter:domain" content="{{site.domain}}">
+    <meta property="twitter:description" content="{{details.page_description}}">
+    <meta property="twitter:data1" content="License">
+    <meta property="twitter:label1" content="{{details.game_license}}">
+    <meta property="twitter:data2" content="Author">
+    <meta property="twitter:label2" content="{{details.game_author}}">
+{% endblock %}
+{% block css_dir %} <link rel="stylesheet" type="text/css" href="/static/css/download_games_sample.css"> {% endblock %}
+{% block css %}
+.rating {
+    float:left;
+    width:300px;
+}
+.rating span { float:right; position:relative; }
+.rating span input {
+    position:absolute;
+    top:0px;
+    left:0px;
+    opacity:0;
+}
+.rating span label {
+    display:inline-block;
+    width:30px;
+    height:30px;
+    text-align:center;
+    color:#FFF;
+    background:rgba(204, 204, 204, 0);
+    font-size:30px;
+    margin-right:0;
+    line-height:30px;
+}
+.rating span:hover ~ span label,
+.rating span:hover label,
+.rating span.checked label,
+.rating span.checked ~ span label {
+    background:rgba(255, 255, 255, 0);
+    color:#F90;
+}
+<!-- add image to thumbnail and make games page in html and  -->
+{% endblock %}
+{% block nav_games %} active {% endblock %}
+
+{% block center_body %}
+{% if user.is_superuser %}
+            <a class="btn btn-info center my-5 btn-lg w-100" href="/developer-area/games/game/{{details.game_id}}/change/" role="button"><i class="bi bi-pencil-square"></i> Edit Game</a>  
+            {% endif %}
+            <div class="breadcurb bg-dark">
+                <nav class="bg-dark bg-dark " style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                    <ol class="breadcrumb font1 bg-dark ">
+                        <li class="breadcrumb-item margin-top-1 bg-dark"><a class="text-decoration-none " href="/">HOME</a></li>
+                        <li class="breadcrumb-item margin-top-1 bg-dark"><a class="text-decoration-none " href="/games">Games</a></li>
+                        <li class="breadcrumb-item margin-top-1 bg-dark"><a href="/games/{{details.game_categary}} " class="bg-dark text-decoration-none " >{{details.game_categary}}</a></li>
+                        <li class="breadcrumb-item active margin-top-1 bg-dark" aria-current="page">{{details.game_name}}</li>
+                    </ol>
+                </nav>
+                
+                
+            </div>
+            <div class="details">
+                <div class="icon">
+                    <a href="">
+                        <img src="/media/{{details.game_image}}" class="{{details.game_name}}"
+                            alt="file-name icon" width="100" height="100">
+                    </a>
+                </div>
+                <div class="info">
+                    <h1 class="file_name text-light">{{details.game_name}}</h1>
+                    <h3 class="file_version text-success">{{details.game_version}}</h3>
+                    <h5 class="file_version text-warning"><a class="text-warning text-decoration-none" href="/games/{{details.game_categary}}" >{{details.game_categary}}</a></h5>
+
+                </div>
+    
+            </div>
+            <div class="status padding-top-50" >
+                <i class="bi bi-star fa-2x"></i>-{{total_rating}}
+                
+            </div>
+            <div class="text-danger font-xxxl  padding-top-50" >
+                {{details.game_description}}
+            </div> <br>
+            
+            
+            <div class=" text-light aling-text-center padding-top-50 padding-bottom-50 " > 
+                Advertisment
+
+            </div>
+            <div class="download-button-div">
+                <a href="/games/{{details.id}}/{{details.game_name}}/download" >
+                    <button type="button" class="download-button btn btn-outline-success ">
+                        <b>Download </b>
+                        <small class="small-txt">Lattest Version</small>
+                    </button>
+                <a>
+            </div>
+            <div class="tech_info padding-top-50 padding-bottom-50">
+            
+                <b class=" text-light font-xxl4 TIP" style=" padding:20px; ">TECHNICAL INFORMATION</b>
+            
+                <div class="table-responsive-sm w-auto">
+            
+                    <table class=" w-auto table table-dark font-xxl3 table-borderless ">
+                        <thead>
+                        <tr>
+                          <td><b>Pack Name</b></td>
+                          <td>=&nbsp&nbsp&nbsp{{details.game_pack_name}}</td>
+                        </tr>
+                        <tr>
+                          <td><b>License</b></td>
+                          <td>=&nbsp&nbsp&nbsp<a>{{details.game_license}}</a></td>
+                        </tr>
+                        <tr>
+                            <td><b>Category</b></td>
+                            <td>=&nbsp&nbsp&nbsp<a href="/games/{{details.game_categary}} " class="text-light">{{details.game_categary}}<a></td>
+                          </tr>
+                        <tr>
+                          <td><b>Version </b></td>
+                          <td>=&nbsp&nbsp&nbsp{{details.game_version}}</td>
+                        </tr>
+                            
+                        <tr>
+                          <td><b>OS(Opreting systerm) </b></td>
+                          <td>=&nbsp&nbsp&nbsp<b>{{details.game_sub_categary}}</b></td>
+                        </tr>
+                        <tr>
+                          <td><b>Author</b> </td>
+                          <td>=&nbsp&nbsp&nbsp<a target="_blank" href="{{details.game_author_href}}" class="link-warning ">{{details.game_author}}</a></td>
+                        </tr>
+                        <tr>
+                          <td><b>Release Date ({{details.game_version}})</b> </td>
+                          <td>=&nbsp&nbsp&nbsp<b>{{details.game_release_date}}</b></td>
+                        </tr>
+                        <tr>
+                          <td><b>Publish Date (on ONE UP)</b> </td>
+                          <td>=&nbsp&nbsp&nbsp<b>{{details.game_publish_date}}</b></td>
+                        </tr>
+                        <tr>
+                          <td><b>Downloads</b></td>
+                          <td>=&nbsp&nbsp&nbsp<span>{{details.views}}</span></td>
+                        </tr>
+
+                        </tbody>
+                        
+            
+                    </table>
+            
+                </div>
+            </div>
+            <div class=" text-light aling-text-center padding-top-50 padding-bottom-50 " > 
+                Advertisment
+
+            </div>
+            <div class="font-xxl2 text-light "> 
+                <p>
+                {{ details.game_maindescription }}
+                </p>
+            </div><br>
+            {% if user.is_superuser %}
+            <a class="btn btn-info center my-5 btn-lg w-100" href="/developer-area/games/game/{{details.game_id}}/change/" role="button"><i class="bi bi-pencil-square"></i> Edit Game</a>  
+            {% endif %}
+            
+            <h1 class="text-light mt-xl-5" id="comment">
+                Comments ({{ coments.count }})   
+            </h1>
+            {% for comment in coments %}
+            <div class="row ">       
+                <div class="col-md-1 my-2 text-light">
+                    <img src="/media/{{user.profile.image}}" alt="User logo" width="80" height="80">
+                </div>
+                <div class="col-md-11 text-light">
+                    <b class="fa-2x text-light">{{comment.user.username}}</b><small class="fa mx-3 bg-light p-2 text-dark" style="border:5px;font-size: 13px; border-radius: 10px;">{{comment.timestamp | naturaltime}}</small>
+                    {% if comment.ratting == 1 %}
+                    <span class="fa fa-star" style="font-size:15px;"></span>
+                    <span class="fa fa-star" style="font-size:15px;"></span>
+                    <span class="fa fa-star" style="font-size:15px;"></span>
+                    <span class="fa fa-star" style="font-size:15px;"></span>
+                    <span class="fa fa-star" style="font-size:15px;color:orange;"></span>
+                    {% endif%}
+                    {% if comment.ratting == 2 %}
+                    <span class="fa fa-star" style="font-size:15px;"></span>
+                    <span class="fa fa-star" style="font-size:15px;"></span>
+                    <span class="fa fa-star" style="font-size:15px;"></span>
+                    <span class="fa fa-star" style="font-size:15px;color:orange;"></span>
+                    <span class="fa fa-star" style="font-size:15px;color:orange;"></span>
+                    {% endif%}
+                    {% if comment.ratting == 3 %}
+                    <span class="fa fa-star" style="font-size:15px;"></span>
+                    <span class="fa fa-star" style="font-size:15px;"></span>
+                    <span class="fa fa-star" style="font-size:15px;color:orange;"></span>
+                    <span class="fa fa-star" style="font-size:15px;color:orange;"></span>
+                    <span class="fa fa-star" style="font-size:15px;color:orange;"></span>
+                    {% endif%}
+                    {% if comment.ratting == 4 %}
+                    <span class="fa fa-star" style="font-size:15px;"></span>
+                    <span class="fa fa-star" style="font-size:15px;color:orange;"></span>
+                    <span class="fa fa-star" style="font-size:15px;color:orange;"></span>
+                    <span class="fa fa-star" style="font-size:15px;color:orange;"></span>
+                    <span class="fa fa-star" style="font-size:15px;color:orange;"></span>
+                    {% endif%}
+                    {% if comment.ratting == 5 %}
+                    <span class="fa fa-star" style="font-size:15px;color:orange;"></span>
+                    <span class="fa fa-star" style="font-size:15px;color:orange;"></span>
+                    <span class="fa fa-star" style="font-size:15px;color:orange;"></span>
+                    <span class="fa fa-star" style="font-size:15px;color:orange;"></span>
+                    <span class="fa fa-star" style="font-size:15px;color:orange;"></span>
+                    {% endif%}<br>
+                    <p class="text-light " style="font-size: 15px;">
+                        {{comment.comment}}
+                    </p> 
+                </div> <br>
+            </div>
+                {% endfor %}   
+
+            
+                {% if user.is_authenticated %}
+                <button class="btn btn-outline-warning my-lg-5 w-100" title="Comment" style="font-size: 15px;" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">Post Your comment</button>
+                {% else %}
+                <button class="btn btn-outline-warning my-lg-5 w-100" style="font-size: 15px;" type="button" data-bs-toggle="modal" data-bs-target="#loginModal" title="Log In">Log in to Post a Commment</button>
+                {% endif %}
+                
+            
+            
+            <div class="offcanvas  offcanvas-bottom bg-dark" style="height: auto;" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+                <div class="offcanvas-header bg-dark text-light border-bottom">
+                  <h5 class="offcanvas-title " id="offcanvasBottomLabel">Add Comment</h5>
+                  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body bg-dark text-light" >
+                    <div class="signup-form w-100 text-light bg-dark">
+                        <form action="/games/11/12/gamepoastcomment/" method="post">{% csrf_token %}
+                            <div class=" row">
+                                <div class="col-md-1">
+                                    <a href="">
+                                        <img src="/media/{{details.game_image}}" title="{{details.game_name}}"
+                                            alt="file-name icon" width="80" height="80">
+                                    </a>
+                                </div>
+                                <div class="col-md-3">
+                                    <h1 class="text-light">{{details.game_name}}</h1>
+                                    <h3 class="text-success">{{details.game_version}}</h3>
+                                    <h5 class="text-warning"><a class="text-warning text-decoration-none" href="/games/{{details.game_categary}}" >{{details.game_categary}}</a></h5>
+                                </div>                                                       
+                                <div class="rating">
+                                    <span ><input type="radio" name="rating" id="str5" value="5"><label class="fa fa-star" for="str5"></label></span>
+                                    <span ><input type="radio" name="rating" id="str4" value="4"><label class="fa fa-star" for="str4"></label></span>
+                                    <span ><input type="radio" name="rating" id="str3" value="3"><label class="fa fa-star" for="str3"></label></span>
+                                    <span ><input type="radio" name="rating" id="str2" value="2"><label class="fa fa-star" for="str2"></label></span>
+                                    <span ><input type="radio" name="rating" id="str1" value="1"><label class="fa fa-star" for="str1"></label></span>
+                                </div>
+                            </div> <br>
+                            <div class="form-floating bg-dark text-light">
+                                <textarea class="form-control bg-dark text-light" name="comment" required placeholder="Leave a comment here" id="comment" style="height: 90px"></textarea>
+                                <label for="floatingTextarea2" style="font-size:18px;padding: 10px;">Comment</label>
+                            </div> <br>
+                            <div class="w-100 "> 
+                                <input type="hidden" name="gameid" value="{{details.id}}">
+                                <input type="hidden" name="gamepath" value="{{request.path}}">
+                                <button class="btn btn-warning center my-5 btn-lg w-100" type="submit">Send</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+
+            <!-- this is top rated section , thumbnail that redirect to games, movies , softwares ,etc  -->
+            <p class="section-tittle font-xxxl">
+                Downloads
+            </p>
+            <p class="section-tittle2">
+                Download all lattest versions <br>
+                Download every thing from here
+            </p>
+
+            <div class="movies-sec">
+                <div class="thumbnail-section">
+                    <p class="thumbnail-text-sec ">
+
+                        Movies-1
+                    </p>
+                    <div class="thumbnail-section-2 ">
+
+                        <div class="games-thumbnail">
+                            <div class="thumbnail margin-bottom-25">
+                                <a href="/movies/avengers_end_game" class="thumbnail-href link-dark">
+                                    <img src="https://miro.medium.com/max/2560/1*2oszyW4ja3z9-VLfTjBwFA.jpeg"
+                                        alt="game img" class="thumbnail-img" width="180" height="200">
+                                    <P class="thumbnail-txt">Avengers Endgame</P>
+                                </a>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+      
+{% endblock %}
+
+{% block js %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+ <!-- java script  -->
+<script>
+    $(document).ready(function(){
+    // Check Radio-box
+    $(".rating input:radio").attr("checked", false);
+
+    $('.rating input').click(function () {
+        $(".rating span").removeClass('checked');
+        $(this).parent().addClass('checked');
+    });
+
+    $('input:radio').change(
+      function(){
+        var userRating = this.value;
+    }); 
+});
+</script>
+{% endblock %}
+
+
+        
+        <!-- make it sticky to left side  -->
+
+        
+
+   
+
+
+
+
+
+
